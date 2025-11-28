@@ -39,9 +39,14 @@ const numberButtons = document.querySelectorAll('.number');
 const display = document.querySelector('.display p');
 const dotButton = document.querySelector('.dot');
 const operatorButtons = document.querySelectorAll('.operator');
-let firstNumber, secondNumber, operator;
+const equalButton = document.querySelector('#equal');
+let firstNumber, secondNumber, operator, clearDisplay = false;
 
 numberButtons.forEach((button) => button.addEventListener('click', () => {
+    if(clearDisplay) {
+        display.textContent = '';
+        clearDisplay = false;
+    }
     display.textContent += button.textContent;
 }));
 
@@ -54,6 +59,13 @@ dotButton.addEventListener('click', () => {
 operatorButtons.forEach((button) => button.addEventListener('click', () => {
     firstNumber = Number(display.textContent);
     operator = button.textContent;
+    clearDisplay = true;
 }));
+
+equalButton.addEventListener('click', () => {
+    secondNumber = Number(display.textContent);
+    display.textContent = operate(firstNumber, secondNumber, operator);
+    clearDisplay = true;
+});
 
 

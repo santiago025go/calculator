@@ -21,10 +21,54 @@ body {
     background-color: #ffffff;
     border-radius: 25px;
     padding: 50px;
+    box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.4);
 }
 
 .display {
     height: 100px;
-    background-color: #f4f4f7;
+    background-color: #e1e1e5;
     border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.display p {
+    font-size: 45px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 25px;
+}
+
+.buttons div {
+    display: flex;
+    flex: 1;
+    gap: 25px;
+}
+
+.buttons div button {
+    flex: 1;
+    border: none;
+    background-color: #e1e1e5;
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+.buttons div button:hover {
+    background-color: #c0c0c6;
+    cursor: pointer;
+}
+
+#equal {
+    flex-grow: 2.45;
+    background-color: #dbf9f0;
+}
+
+#equal:hover {
+    background-color: #cbe9e0;
 }

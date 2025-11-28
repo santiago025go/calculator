@@ -14,9 +14,17 @@ body {
 
 .calculator {
     display: flex;
+    flex-direction: column;
+    gap: 50px;
     width: 600px;
     height: 700px;
     background-color: #ffffff;
     border-radius: 25px;
     padding: 50px;
+}
+
+.display {
+    height: 100px;
+    background-color: #f4f4f7;
+    border-radius: 15px;
 }

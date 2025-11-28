@@ -36,6 +36,7 @@ body {
 
 .display p {
     font-size: 45px;
+    overflow: hidden;
 }
 
 .buttons {

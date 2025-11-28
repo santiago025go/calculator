@@ -11,7 +11,10 @@ function multiply(numberOne, numberTwo){
 }
 
 function divide(numberOne, numberTwo){
-    if(numberTwo === 0) return 'ERROR';
+    if(numberTwo === 0) {
+        clearDisplay = true;
+        return 'ERROR';
+    }    
     return numberOne / numberTwo;
 }
 
@@ -51,6 +54,10 @@ numberButtons.forEach((button) => button.addEventListener('click', () => {
 }));
 
 dotButton.addEventListener('click', () => {
+    if(clearDisplay) {
+        display.textContent = '';
+        clearDisplay = false;
+    }
     if(!display.textContent.includes(dotButton.textContent)){
         display.textContent += dotButton.textContent;
     }

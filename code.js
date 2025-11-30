@@ -102,6 +102,9 @@ delButton.addEventListener('click', () => {
         return;
     }
     display.textContent = display.textContent.slice(0, -1);
+    if(display.textContent === '-'){
+        display.textContent = '';
+    }
 });
 
 

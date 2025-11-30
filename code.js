@@ -45,7 +45,7 @@ const operatorButtons = document.querySelectorAll('.operator');
 const equalButton = document.querySelector('#equal');
 const delButton = document.querySelector('.del');
 const clrButton = document.querySelector('.clr');
-let firstNumber, secondNumber, operator, clearDisplay = false;
+let firstNumber, secondNumber, operator, clearDisplay = false, concatenateOperation = false;
 
 numberButtons.forEach((button) => button.addEventListener('click', () => {
     if(clearDisplay) {
@@ -66,12 +66,17 @@ dotButton.addEventListener('click', () => {
 });
 
 operatorButtons.forEach((button) => button.addEventListener('click', () => {
+    if(concatenateOperation){
+        let equalEvent = new Event('click');
+        equalButton.dispatchEvent(equalEvent);
+    }
     firstNumber = Number(display.textContent);
     operator = button.textContent;
     clearDisplay = true;
     if(display.textContent === 'ERROR'){
         firstNumber = 0;
     }
+    concatenateOperation = true;
 }));
 
 equalButton.addEventListener('click', () => {
@@ -85,6 +90,7 @@ equalButton.addEventListener('click', () => {
     } 
     display.textContent = operationResult;
     clearDisplay = true;
+    concatenateOperation = false;
 });
 
 clrButton.addEventListener('click', () => location.reload());

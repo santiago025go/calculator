@@ -43,6 +43,8 @@ const display = document.querySelector('.display p');
 const dotButton = document.querySelector('.dot');
 const operatorButtons = document.querySelectorAll('.operator');
 const equalButton = document.querySelector('#equal');
+const delButton = document.querySelector('.del');
+const clrButton = document.querySelector('.clr');
 let firstNumber, secondNumber, operator, clearDisplay = false;
 
 numberButtons.forEach((button) => button.addEventListener('click', () => {
@@ -67,12 +69,29 @@ operatorButtons.forEach((button) => button.addEventListener('click', () => {
     firstNumber = Number(display.textContent);
     operator = button.textContent;
     clearDisplay = true;
+    if(display.textContent === 'ERROR'){
+        firstNumber = 0;
+    }
 }));
 
 equalButton.addEventListener('click', () => {
     secondNumber = Number(display.textContent);
+    if(display.textContent === 'ERROR'){
+        secondNumber = 0;
+    }
     display.textContent = operate(firstNumber, secondNumber, operator);
     clearDisplay = true;
+});
+
+clrButton.addEventListener('click', () => location.reload());
+
+delButton.addEventListener('click', () => {
+    if(display.textContent === 'ERROR'){
+        let clickClrButton = new Event('click');
+        clrButton.dispatchEvent(clickClrButton);
+        return;
+    }
+    display.textContent = display.textContent.slice(0, -1);
 });
 
 

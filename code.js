@@ -107,4 +107,19 @@ delButton.addEventListener('click', () => {
     }
 });
 
+document.body.addEventListener('keydown', (event) => {
+    if(Number(event.key) !== NaN){
+        numberButtons.forEach((button) => {
+            if(button.textContent === event.key){
+                let numberButtonEvent = new Event('click');
+                button.dispatchEvent(numberButtonEvent);
+            }
+        });
+    }
+    if(event.key === 'Backspace'){
+        let backspaceEvent = new Event('click');
+        delButton.dispatchEvent(backspaceEvent);
+    }
+});
+
 

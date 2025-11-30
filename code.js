@@ -1,13 +1,13 @@
 function add(numberOne, numberTwo){
-    return numberOne + numberTwo;
+    return (numberOne + numberTwo).toFixed(2);
 }
 
 function subtract(numberOne, numberTwo){
-    return numberOne - numberTwo;
+    return (numberOne - numberTwo).toFixed(2);
 }
 
 function multiply(numberOne, numberTwo){
-    return numberOne * numberTwo;
+    return (numberOne * numberTwo).toFixed(2);
 }
 
 function divide(numberOne, numberTwo){
@@ -15,11 +15,11 @@ function divide(numberOne, numberTwo){
         clearDisplay = true;
         return 'ERROR';
     }    
-    return numberOne / numberTwo;
+    return (numberOne / numberTwo).toFixed(2);
 }
 
 function percentage(numberOne, numberTwo){
-    return numberOne / 100 * numberTwo;
+    return (numberOne / 100 * numberTwo).toFixed(2);
 }
 
 function operate(numberOne, numberTwo, operator){

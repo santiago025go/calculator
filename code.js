@@ -79,7 +79,11 @@ equalButton.addEventListener('click', () => {
     if(display.textContent === 'ERROR'){
         secondNumber = 0;
     }
-    display.textContent = operate(firstNumber, secondNumber, operator);
+    let operationResult = operate(firstNumber, secondNumber, operator);
+    if(operationResult !== 'ERROR' && operationResult % 1 !== 0){
+        operationResult = operationResult.toFixed(2);
+    } 
+    display.textContent = operationResult;
     clearDisplay = true;
 });
 
